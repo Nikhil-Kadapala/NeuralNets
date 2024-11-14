@@ -1,4 +1,5 @@
 [![Repo-logo](images/NeuralNet.png)](https://nikhil-kadapala.github.io/NeuralNets/)
+[![Repo-logo](images/CNN.png)](https://nikhil-kadapala.github.io/NeuralNets/)
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
 
