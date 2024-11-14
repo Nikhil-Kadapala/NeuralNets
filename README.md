@@ -1,5 +1,5 @@
 <a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
-    img src="images/NeuralNet.png" alt="Repo-logo"
+    <img src="images/NeuralNet.png" alt="Repo-logo">
 </a>
 
 # NeuralNets
