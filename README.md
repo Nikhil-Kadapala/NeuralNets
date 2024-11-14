@@ -1,4 +1,6 @@
-[![Repo-logo](images/NeuralNet.png)](https://nikhil-kadapala.github.io/NeuralNets/)
+<a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
+    <img src="images/NeuralNet.png" alt="Repo-logo">
+</a>
 
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
@@ -11,4 +13,6 @@ sometimes tend to make between the features that might not align with human reas
 This can be a problem when sensitive variables are involved and misclassifications can have catastrophic consequences. 
 To that end, we evaluate a classifier designed using a standard Neural Network architecture with LIME.
 
-[![Repo-logo](images/CNN.png)](https://nikhil-kadapala.github.io/NeuralNets/)
+<a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
+    <img src="images/CNN.png" alt="Repo-logo">
+</a>
