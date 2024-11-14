@@ -1,4 +1,4 @@
-<a href="https://nikhil-kadapala.github.io/NeuralNets/" onclick="window.open(this.href, '_blank'); return false;">
+<a href="http://bit.ly/3OcOBeA" onclick="window.open(this.href, '_blank'); return false;">
     <img src="images/NeuralNet.png" alt="Repo-logo">
 </a>
 
