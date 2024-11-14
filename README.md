@@ -1,6 +1,9 @@
-<a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
+<a href="https://nikhil-kadapala.github.io/NeuralNets/" rel="noopener noreferrer" onclick="window.open(this.href, '_blank'); return false;">
     <img src="images/NeuralNet.png" alt="Repo-logo">
 </a>
+
+Hold down ctrl (or cmd on Mac) and click on the image to view the website in a new tab or simply click on the image to view here.
+
 
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
@@ -16,3 +19,5 @@ To that end, we evaluate a classifier designed using a standard Neural Network a
 <a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
     <img src="images/CNN.png" alt="Repo-logo">
 </a>
+
+source: Susan, Seba. (2024). Neuroscientific insights about computer vision models: a concise review. Biological Cybernetics. 1-18. 10.1007/s00422-024-00998-9. 
