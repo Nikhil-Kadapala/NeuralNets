@@ -1,7 +1,7 @@
 <a href="https://nikhil-kadapala.github.io/NeuralNets/" rel="noopener noreferrer" onclick="window.open(this.href, '_blank'); return false;">
     <img src="images/NeuralNet.png" alt="Repo-logo">
 </a>
-
+Hold down ctrl (or cmd on Mac) and click on the image to view the website in a new tab or simply click on the image to view here.
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
 
