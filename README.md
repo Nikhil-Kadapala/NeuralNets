@@ -1,4 +1,4 @@
-![](https://github.com/Nikhil-Kadapala/NeuralNets/blob/main/images/NN.gif)|![](https://github.com/Nikhil-Kadapala/NeuralNets/blob/main/images/title.gif)
+<img src=".images/NN.gif" width="425"/> <img src=".images/title.gif" width="425"/> 
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
