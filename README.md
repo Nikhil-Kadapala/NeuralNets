@@ -1,13 +1,13 @@
-<a href="https://nikhil-kadapala.github.io/NeuralNets/" rel="noopener noreferrer" onclick="window.open(this.href, '_blank'); return false;">
-    <img src="images/NeuralNet.png" alt="Repo-logo">
-</a>
-
-Hold down ctrl (or cmd on Mac) and click on the image to view the website in a new tab or simply click on the image to view here.
-
+<img src="./images/logo.png" width=800>
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
+
+<a href="https://nikhil-kadapala.github.io/NeuralNets/" rel="noopener noreferrer" onclick="window.open(this.href, '_blank'); return false;">
+    <img src="images/NeuralNet.png" alt="Repo-logo">
+</a>
+Hold down ctrl (or cmd on Mac) and click on the image to view the website in a new tab or simply click on the image to view here.
 
 Most Neural Networks in use today  are black boxes that are hard to interpret due to their complex nature and high dimensionality. 
 Interpretability of these Machine Learning Models helps human decision-makers understand how these models rationalize their behavior 
