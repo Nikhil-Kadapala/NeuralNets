@@ -1,4 +1,4 @@
-<img src="images/NN.gif" width="325"/> <img src="images/title.gif" width="325"/> 
+<img src="images/NN.gif" width="350"/> <img src="images/title.gif" width="350"/> 
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
