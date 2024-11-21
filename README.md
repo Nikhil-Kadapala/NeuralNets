@@ -4,6 +4,7 @@
 
 Hold down ctrl (or cmd on Mac) and click on the image to view the website in a new tab or simply click on the image to view here.
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
 # NeuralNets
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
