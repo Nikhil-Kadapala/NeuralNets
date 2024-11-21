@@ -1,4 +1,4 @@
-<img src="./images/logo.png" width=800 height=1000>
+<img src="./images/logo.png" width=800 height=500>
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
