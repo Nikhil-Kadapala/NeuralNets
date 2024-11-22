@@ -2,6 +2,8 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
+![GitHub contributors](https://img.shields.io/github/contributors/Nikhil-Kadapala/NeuralNets)
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Rational Neural Networks (RNNs) ![GitHub License](https://img.shields.io/github/license/Nikhil-Kadapala/NeuralNets)
