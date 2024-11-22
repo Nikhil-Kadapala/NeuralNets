@@ -2,7 +2,7 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/standardNeuralNets/stdCNN_LIME.ipynb)
 
-# NeuralNets
+# NeuralNets ![GitHub License](https://img.shields.io/github/license/Nikhil-Kadapala/NeuralNets)
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
 
 Most Neural Networks in use today  are black boxes that are hard to interpret due to their complex nature and high dimensionality. 
