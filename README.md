@@ -4,7 +4,8 @@
 <br/><!--
 ![GitHub contributors](https://img.shields.io/github/contributors/Nikhil-Kadapala/NeuralNets)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Nikhil-Kadapala/NeuralNets)
-
+-->
+</br?
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Rational Neural Networks (RNNs) ![GitHub License](https://img.shields.io/github/license/Nikhil-Kadapala/NeuralNets)
