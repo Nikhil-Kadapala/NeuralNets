@@ -4,7 +4,6 @@
 <br/><!--
 ![GitHub contributors](https://img.shields.io/github/contributors/Nikhil-Kadapala/NeuralNets)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Nikhil-Kadapala/NeuralNets)
--->
 </br>
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
