@@ -18,8 +18,6 @@ sometimes tend to make between the features that might not align with human reas
 This can be a problem when sensitive variables are involved and misclassifications can have catastrophic consequences. 
 To that end, we evaluate a classifier designed using a standard Neural Network architecture with LIME.
 
-<a href="https://nikhil-kadapala.github.io/NeuralNets/" target="_blank">
-    <img src="images/CNN.png" alt="Repo-logo">
-</a>
+<img src="images/standard CNN.png" alt="">
 
-source: Susan, Seba. (2024). Neuroscientific insights about computer vision models: a concise review. Biological Cybernetics. 1-18. 10.1007/s00422-024-00998-9. 
+<img src="images/custom CNN.png" alt="">
