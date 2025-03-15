@@ -14,10 +14,11 @@ def add_tokens(reviews: List, annotations: List) -> List:
     """
     for i in tqdm(range(len(reviews))):
         review = reviews[i]
-        annotation = annotations[i]
-        for evidence in annotation['evidences']:
-            evidence_text = evidence[0]['text']
+        annotation = annotations[i].split(',') if type(annotations[i]) == str else ["[None]"]
+        for evidence_text in annotation:
+            #evidence_text = evidence[0]['text']
             review = review.replace(evidence_text, f"<evidence>{evidence_text}</evidence>")
+            reviews[i] = review
     return reviews
 
 def main():
@@ -73,11 +74,17 @@ def main():
     train_annotations.columns = ['annotations']
     val_annotations.columns = ['annotations']
     test_annotations.columns = ['annotations']
-    train_anns = pd.read_csv('./movies/train.jsonl')
+    trnAnn = train_annotations['annotations'].tolist()
+    
     special_train_reviews = add_tokens(train_reviews['reviews'].tolist(), train_annotations['annotations'].tolist())
     special_val_reviews = add_tokens(val_reviews['reviews'].tolist(), val_annotations['annotations'].tolist())
     special_test_reviews = add_tokens(test_reviews['reviews'].tolist(), test_annotations['annotations'].tolist())
-
+    
+    with open('./data/special_train_reviews.jsonl', 'w', encoding='utf-8') as f:
+        for review in special_train_reviews:
+            jsonobj = {'review': review}
+            jsonline = json.dumps(jsonobj, ensure_ascii=False)
+            f.write(jsonline + '\n')
     print(f'Addition of special tokens completed successfully!\nThe processed data has been saved to the ./data directory.')
 
 if __name__ == "__main__":
