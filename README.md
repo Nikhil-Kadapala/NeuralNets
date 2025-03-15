@@ -4,11 +4,11 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
 </a>
 
-<br/>
+
 ![GitHub contributors](https://img.shields.io/github/contributors/Nikhil-Kadapala/NeuralNets)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Nikhil-Kadapala/NeuralNets)
-</br>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+>------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Rational Neural Networks (RNNs) ![GitHub License](https://img.shields.io/github/license/Nikhil-Kadapala/NeuralNets)
 A project on teaching Deep Neural Networks to Rationalize with LIME Feedback
