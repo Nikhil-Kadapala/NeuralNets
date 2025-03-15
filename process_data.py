@@ -80,8 +80,8 @@ def get_reviews(train_data, val_data, test_data):
     
 def get_labels(train_data, val_data, test_data):
     train_classes = torch.tensor([get_classes(train_data, i) for i in range(len(train_data))], dtype=torch.float)
-    val_classes = torch.tensor([get_classes(val_data, i) for i in range(val_size = len(val_data))], dtype=torch.float)
-    test_classes = torch.tensor([get_classes(test_data, i) for i in range(test_size = len(test_data))], dtype=torch.float)
+    val_classes = torch.tensor([get_classes(val_data, i) for i in range(len(val_data))], dtype=torch.float)
+    test_classes = torch.tensor([get_classes(test_data, i) for i in range(len(test_data))], dtype=torch.float)
     
     train_classes = torch.stack([train_classes]).squeeze(0) # convert the classes to binary tensor for two classes (pos & neg)
     val_classes = torch.stack([val_classes]).squeeze(0) # convert the classes to binary tensor for two classes (pos & neg)
@@ -124,7 +124,7 @@ def main():
     train_reviews, val_reviews, test_reviews = get_reviews(train_data, val_data, test_data)
     train_classes, val_classes, test_classes = get_labels(train_data, val_data, test_data)
     train_rationales, val_rationales, test_rationales = get_rationales(train_data, val_data, test_data)
-
+    os.makedirs('./data', exist_ok=True)  # create the directory if it does not exist
     # save the reviews, labels, and rationales to the files
     pd.DataFrame(train_reviews).to_csv('./data/train_reviews.csv', index=False)
     pd.DataFrame(val_reviews).to_csv('./data/val_reviews.csv', index=False)
