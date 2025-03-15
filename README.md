@@ -1,6 +1,8 @@
 <img src="images/NN.gif" width="400"/> <img src="images/title.gif" width="400"/> 
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/CNNwithLIME%26Attn.ipynb)
+<a href="https://colab.research.google.com/github/Nikhil-Kadapala/NeuralNets/blob/main/CNNwithLIME%26Attn.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
+</a>
 <br/>
 ![GitHub contributors](https://img.shields.io/github/contributors/Nikhil-Kadapala/NeuralNets)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Nikhil-Kadapala/NeuralNets)
