@@ -66,22 +66,26 @@ def main():
     train_annotations = pd.read_csv(train_annotations_filepath)
     val_annotations = pd.read_csv(val_annotations_filepath)
     test_annotations = pd.read_csv(test_annotations_filepath)
-
-    # Convert the reviews and annotations to lists
-    train_reviews.columns = ['reviews']
-    val_reviews.columns = ['reviews']
-    test_reviews.columns = ['reviews']
-    train_annotations.columns = ['annotations']
-    val_annotations.columns = ['annotations']
-    test_annotations.columns = ['annotations']
-    trnAnn = train_annotations['annotations'].tolist()
     
+    print(f"Adding special tokens to the training reviews...")
     special_train_reviews = add_tokens(train_reviews['reviews'].tolist(), train_annotations['annotations'].tolist())
+    print(f"Adding special tokens to the validation reviews...")
     special_val_reviews = add_tokens(val_reviews['reviews'].tolist(), val_annotations['annotations'].tolist())
+    print(f"Adding special tokens to the test reviews...")
     special_test_reviews = add_tokens(test_reviews['reviews'].tolist(), test_annotations['annotations'].tolist())
     
     with open('./data/special_train_reviews.jsonl', 'w', encoding='utf-8') as f:
         for review in special_train_reviews:
+            jsonobj = {'review': review}
+            jsonline = json.dumps(jsonobj, ensure_ascii=False)
+            f.write(jsonline + '\n')
+    with open('./data/special_val_reviews.jsonl', 'w', encoding='utf-8') as f:
+        for review in special_val_reviews:
+            jsonobj = {'review': review}
+            jsonline = json.dumps(jsonobj, ensure_ascii=False)
+            f.write(jsonline + '\n')
+    with open('./data/special_test_reviews.jsonl', 'w', encoding='utf-8') as f:
+        for review in special_test_reviews:
             jsonobj = {'review': review}
             jsonline = json.dumps(jsonobj, ensure_ascii=False)
             f.write(jsonline + '\n')

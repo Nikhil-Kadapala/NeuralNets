@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import argparse
 import os
+
 def parse_data(file_path):
     data = []                                               # Initialize an empty list to store the dictionaries
 
@@ -126,15 +127,15 @@ def main():
     train_rationales, val_rationales, test_rationales = get_rationales(train_data, val_data, test_data)
     os.makedirs('./data', exist_ok=True)  # create the directory if it does not exist
     # save the reviews, labels, and rationales to the files
-    pd.DataFrame(train_reviews).to_csv('./data/train_reviews.csv', index=False)
-    pd.DataFrame(val_reviews).to_csv('./data/val_reviews.csv', index=False)
-    pd.DataFrame(test_reviews).to_csv('./data/test_reviews.csv', index=False)
-    pd.DataFrame(train_classes).to_csv('./data/train_classes.csv', index=False)
-    pd.DataFrame(val_classes).to_csv('./data/val_classes.csv', index=False)
-    pd.DataFrame(test_classes).to_csv('./data/test_classes.csv', index=False)
-    pd.DataFrame(train_rationales).to_csv('./data/train_rationales.csv', index=False)
-    pd.DataFrame(val_rationales).to_csv('./data/val_rationales.csv', index=False)
-    pd.DataFrame(test_rationales).to_csv('./data/test_rationales.csv', index=False)
+    pd.DataFrame(train_reviews, columns=['reviews']).to_csv('./data/train_reviews.csv', index=False)
+    pd.DataFrame(val_reviews, columns=['reviews']).to_csv('./data/val_reviews.csv', index=False)
+    pd.DataFrame(test_reviews, columns=['reviews']).to_csv('./data/test_reviews.csv', index=False)
+    pd.DataFrame(train_classes, columns=['classes']).to_csv('./data/train_classes.csv', index=False)
+    pd.DataFrame(val_classes, columns=['classes']).to_csv('./data/val_classes.csv', index=False)
+    pd.DataFrame(test_classes, columns=['classes']).to_csv('./data/test_classes.csv', index=False)
+    pd.DataFrame(train_rationales, columns=['annotations']).to_csv('./data/train_rationales.csv', index=False)
+    pd.DataFrame(val_rationales, columns=['annotations']).to_csv('./data/val_rationales.csv', index=False)
+    pd.DataFrame(test_rationales, columns=['annotations']).to_csv('./data/test_rationales.csv', index=False)
     print(f'Data processing completed successfully!\nThe processed data has been saved to the ./data directory.')
 
 if __name__ == "__main__":
