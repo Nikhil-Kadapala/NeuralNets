@@ -14,11 +14,16 @@ def add_tokens(reviews: List, annotations: List) -> List:
     """
     for i in tqdm(range(len(reviews))):
         review = reviews[i]
-        annotation = annotations[i].split(',') if type(annotations[i]) == str else ["[None]"]
-        for evidence_text in annotation:
-            #evidence_text = evidence[0]['text']
-            review = review.replace(evidence_text, f"<evidence>{evidence_text}</evidence>")
+        evidences = annotations[i].split(',') if type(annotations[i]) == str else ["[None]"]
+        evi_len = len(evidences)
+        indexes = {i: 0 for i in range(evi_len)}
+        print(indexes)
+        for i, evidence in enumerate(reversed(evidences)):
+            if indexes[evi_len - 1 - i] == 0:
+                review = review.replace(evidence, f"<evidence>{evidence}</evidence>")
+                indexes[evi_len - 1 - i] = 1
             reviews[i] = review
+            
     return reviews
 
 def main():
@@ -27,7 +32,6 @@ def main():
     # add the option or flag to specify the system prompt for the fine-tuning data and the path to the training data file.
     parser.add_argument("-trn", "--train", nargs="*", type=str, help="path to the training data in the following format: ./data/train.jsonl")
     parser.add_argument("-val", "--val", nargs="*", type=str, help="path to the validation data in the following format: ./data/val.jsonl")
-    parser.add_argument("-tst", "--test", nargs="*", type=str, help="path to the test data in the following format: ./data/test.jsonl")
 
     # use parse_args() method to parse the command line arguments 
     args = parser.parse_args()
@@ -52,43 +56,30 @@ def main():
     else:
         val_reviews_filepath = args.val[0]
         val_annotations_filepath = args.val[1]
-    if args.test is None:
-        test_reviews_filepath = './data/test_reviews.csv'
-        test_annotations_filepath = './data/test_rationales.csv'
-    else:
-        test_reviews_filepath = args.test[0]
-        test_annotations_filepath = args.test[1]
 
     train_reviews = pd.read_csv(train_reviews_filepath)
     val_reviews = pd.read_csv(val_reviews_filepath)
-    test_reviews = pd.read_csv(test_reviews_filepath)
 
     train_annotations = pd.read_csv(train_annotations_filepath)
     val_annotations = pd.read_csv(val_annotations_filepath)
-    test_annotations = pd.read_csv(test_annotations_filepath)
     
     print(f"Adding special tokens to the training reviews...")
     special_train_reviews = add_tokens(train_reviews['reviews'].tolist(), train_annotations['annotations'].tolist())
     print(f"Adding special tokens to the validation reviews...")
-    special_val_reviews = add_tokens(val_reviews['reviews'].tolist(), val_annotations['annotations'].tolist())
-    print(f"Adding special tokens to the test reviews...")
-    special_test_reviews = add_tokens(test_reviews['reviews'].tolist(), test_annotations['annotations'].tolist())
+    #special_val_reviews = add_tokens(val_reviews['reviews'].tolist(), val_annotations['annotations'].tolist())
     
-    with open('./data/special_train_reviews.jsonl', 'w', encoding='utf-8') as f:
+    with open('./data/mrkd_train_reviews.jsonl', 'w', encoding='utf-8') as f:
         for review in special_train_reviews:
             jsonobj = {'review': review}
             jsonline = json.dumps(jsonobj, ensure_ascii=False)
             f.write(jsonline + '\n')
-    with open('./data/special_val_reviews.jsonl', 'w', encoding='utf-8') as f:
-        for review in special_val_reviews:
+    """
+    with open('./data/mrkd_val_reviews.jsonl', 'w', encoding='utf-8') as f:
+        for review in special_val_reviews: # type: ignore
             jsonobj = {'review': review}
             jsonline = json.dumps(jsonobj, ensure_ascii=False)
             f.write(jsonline + '\n')
-    with open('./data/special_test_reviews.jsonl', 'w', encoding='utf-8') as f:
-        for review in special_test_reviews:
-            jsonobj = {'review': review}
-            jsonline = json.dumps(jsonobj, ensure_ascii=False)
-            f.write(jsonline + '\n')
+    """   
     print(f'Addition of special tokens completed successfully!\nThe processed data has been saved to the ./data directory.')
 
 if __name__ == "__main__":
