@@ -12,19 +12,38 @@ def add_tokens(reviews: List, annotations: List) -> List:
     :param annotations: List of annotations
     :return: List of reviews with added tokens
     """
+    reviews_list = []
+    evidences = annotations['evidence']
+    indexes = annotations['index']
     for i in tqdm(range(len(reviews))):
-        review = reviews[i]
-        evidences = annotations[i].split(',') if type(annotations[i]) == str else ["[None]"]
-        evi_len = len(evidences)
-        indexes = {i: 0 for i in range(evi_len)}
-        print(indexes)
-        for i, evidence in enumerate(reversed(evidences)):
-            if indexes[evi_len - 1 - i] == 0:
-                review = review.replace(evidence, f"<evidence>{evidence}</evidence>")
-                indexes[evi_len - 1 - i] = 1
-            reviews[i] = review
-            
-    return reviews
+        review = reviews[i]['review']
+        rationales = evidences[i]
+        idx = indexes[i]
+        review_split = review.split('.')
+        for i, rationale in enumerate(rationales):
+            review_split[idx] = review_split[idx].replace(rationale, f"<evidence>{rationale}</evidence>")
+        reviews_list.append(" ".join(review_split))
+    return reviews_list
+
+def read_reviews_and_rationales(filepath: str, type: str) -> Any:
+    """
+    Read the reviews and rationales from the file.
+    :param filepath: Path to the file
+    :param type: Type of the file (reviews or rationales)
+    :return: List of reviews or rationales
+    """
+    with open(filepath, 'r', encoding='utf-8') as f:
+        if type == 'reviews':
+            return [json.loads(line) for line in f]
+        elif type == 'rationales':
+            rationales = {'evidence': [], 'index': []}
+            for line in f:
+                data = json.loads(line)
+                rationales['evidence'].append(data['evidence'])
+                rationales['index'].append(data['index'])
+            return rationales
+        else:
+            raise ValueError(f"Invalid type: {type}")
 
 def main():
     parser = argparse.ArgumentParser(description="Processing the initial dataset to extract the reviews, labels, and rationales.")
@@ -45,29 +64,28 @@ def main():
     test_annotations_filepath: str
 
     if args.train is None:
-        train_reviews_filepath = './data/train_reviews.csv'
-        train_annotations_filepath = './data/train_rationales.csv'
+        train_reviews_filepath = './data/train_reviews.jsonl'
+        train_annotations_filepath = './data/train_rationales.jsonl'
     else:
         train_reviews_filepath = args.train[0]
         train_annotations_filepath = args.train[1]
     if args.val is None:
-        val_reviews_filepath = './data/val_reviews.csv'
-        val_annotations_filepath = './data/val_rationales.csv'
+        val_reviews_filepath = './data/val_reviews.jsonl'
+        val_annotations_filepath = './data/val_rationales.jsonl'
     else:
         val_reviews_filepath = args.val[0]
         val_annotations_filepath = args.val[1]
 
-    train_reviews = pd.read_csv(train_reviews_filepath)
-    val_reviews = pd.read_csv(val_reviews_filepath)
-
-    train_annotations = pd.read_csv(train_annotations_filepath)
-    val_annotations = pd.read_csv(val_annotations_filepath)
+    train_reviews = read_reviews_and_rationales(train_reviews_filepath, 'reviews')
+    train_annotations = read_reviews_and_rationales(train_annotations_filepath, 'rationales')
+    #val_reviews = read_reviews_and_rationales(val_reviews_filepath, 'reviews')
+    #val_annotations = read_reviews_and_rationales(val_annotations_filepath, 'rationales')
     
     print(f"Adding special tokens to the training reviews...")
-    special_train_reviews = add_tokens(train_reviews['reviews'].tolist(), train_annotations['annotations'].tolist())
+    special_train_reviews = add_tokens(train_reviews[0:1], train_annotations)
     print(f"Adding special tokens to the validation reviews...")
-    #special_val_reviews = add_tokens(val_reviews['reviews'].tolist(), val_annotations['annotations'].tolist())
-    
+    #special_val_reviews = add_tokens(val_reviews['reviews'], val_annotations)
+
     with open('./data/mrkd_train_reviews.jsonl', 'w', encoding='utf-8') as f:
         for review in special_train_reviews:
             jsonobj = {'review': review}
